@@ -10,10 +10,6 @@ export class LoanQuote {
   interestRate : string | undefined;
 }
 
-// @Injectable({
-//   providedIn: 'root'
-// })
-
 @Injectable()
 export class LoanQuoteService {
   endpoint = "http://localhost:8080/online/quote?amountRequested=200&lendersSource=CSV";

@@ -23,7 +23,7 @@ export class LoanQuoteFormComponent {
     ])
   });
 
-  LoanQuotes: any = [];
+  loanQuote: any = {};
 
   constructor(private service : LoanQuoteService) {}
 
@@ -32,10 +32,9 @@ export class LoanQuoteFormComponent {
   }
 
   onSubmitLoanRequest() {
-    //alert("Click anda");
-    return this.service.getLoanQuote().subscribe(
+    this.loanQuote = this.service.getLoanQuote().subscribe(
       (res: {}) => {
-        this.LoanQuotes = res;
+        this.loanQuote = res;
         console.log(res);
       });
   }
