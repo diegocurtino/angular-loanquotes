@@ -13,6 +13,7 @@ export class LoanQuoteFormComponent {
   MIN_AMOUNT = 100;
   MAX_AMOUNT = 1500;
   MULTIPLE_FACTOR = 100;
+  showTable = false;
 
   form = new FormGroup({
     'amount': new FormControl('',  [
@@ -32,10 +33,10 @@ export class LoanQuoteFormComponent {
   }
 
   onSubmitLoanRequest() {
-    this.loanQuote = this.service.getLoanQuote().subscribe(
+    this.loanQuote = this.service.getLoanQuote(this.amount?.value).subscribe(
       (res: {}) => {
         this.loanQuote = res;
-        console.log(res);
+        this.showTable = true;
       });
   }
 }

@@ -12,12 +12,15 @@ export class LoanQuote {
 
 @Injectable()
 export class LoanQuoteService {
-  endpoint = "http://localhost:8080/online/quote?amountRequested=200&lendersSource=CSV";
+  endpointPrefix : string = "http://localhost:8080/online/quote?amountRequested=";
+  endpointSuffix : string = "&lendersSource=CSV";
+  url : string = "";
 
   constructor(private httpClient : HttpClient) {}
 
-  getLoanQuote(): Observable<LoanQuote> {
-    return this.httpClient.get<LoanQuote>(this.endpoint)
+  getLoanQuote(amount : number): Observable<LoanQuote> {
+    this.url = this.endpointPrefix + amount + this.endpointSuffix;
+    return this.httpClient.get<LoanQuote>(this.url)
     .pipe(
       retry(1)
     )

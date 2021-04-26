@@ -13,24 +13,25 @@
         <button class="btn btn-primary" [disabled]="!form.valid" (click)="onSubmitLoanRequest()">Submit</button>
     </form>
 </div>
-<div id="div-separator"></div>
-<div class="table-payment">
-  <table class="table table-bordered">
-      <thead class="thead-dark">
-        <tr>
-          <th scope="col">Monthly Installment</th>
-          <th scope="col">Total repayment</th>
-          <th scope="col">Amount borrowed</th>
-          <th scope="col">Interest rate</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>{{loanQuote.monthlyInstallment}}</td>
-          <td>{{loanQuote.totalRepayment}}</td>
-          <td>{{loanQuote.amountBorrowed}}</td>
-          <td>{{loanQuote.interestRate}}</td>
-        </tr>
-      </tbody>
-  </table>
+<div id="div-separator" [style.display]="showTable ? '' : 'none'">
+  <div class="table-payment">
+    <table class="table table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Monthly Installment</th>
+            <th scope="col">Total repayment</th>
+            <th scope="col">Amount borrowed</th>
+            <th scope="col">Interest rate</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{loanQuote.monthlyInstallment}}</td>
+            <td>{{loanQuote.totalRepayment}}</td>
+            <td>{{loanQuote.amountBorrowed}}</td>
+            <td>{{loanQuote.interestRate}}</td>
+          </tr>
+        </tbody>
+    </table>
+  </div>
 </div>
