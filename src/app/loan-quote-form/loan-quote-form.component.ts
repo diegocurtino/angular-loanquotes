@@ -38,5 +38,8 @@ export class LoanQuoteFormComponent {
         this.loanQuote = res;
         this.showTable = true;
       });
+
+      // If the user is typing, hide the table with the quote table.
+      this.amount?.valueChanges.subscribe(() => { this.showTable = false });
   }
 }
