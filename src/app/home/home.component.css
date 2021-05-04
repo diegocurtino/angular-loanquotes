@@ -1,0 +1,18 @@
+.object-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  .object-div {
+    max-width: 720px;
+    width: 100%;
+  }
+  
+  .object {
+    padding: 20px;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+  }
