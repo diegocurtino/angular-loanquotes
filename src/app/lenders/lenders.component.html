@@ -1,0 +1,20 @@
+<div id="div-separator">
+    <div class="table-payment">
+      <table class="table table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Rate</th>
+              <th scope="col">Available funds</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor = "let lender of lenders">
+              <td>{{lender.name}}</td>
+              <td>{{lender.rate}}</td>
+              <td>{{lender.availableFunds}}</td>
+            </tr>
+          </tbody>
+      </table>
+    </div>
+</div>

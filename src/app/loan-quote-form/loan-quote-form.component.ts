@@ -14,6 +14,7 @@ export class LoanQuoteFormComponent {
   MAX_AMOUNT = 1500;
   MULTIPLE_FACTOR = 100;
   showTable = false;
+  loanQuote: any = {};
 
   form = new FormGroup({
     'amount': new FormControl('',  [
@@ -23,8 +24,6 @@ export class LoanQuoteFormComponent {
       AmountValidators.mustBeMultipleOfOneHundred
     ])
   });
-
-  loanQuote: any = {};
 
   constructor(private service : LoanQuoteService) {}
 

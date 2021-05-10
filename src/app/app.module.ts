@@ -8,13 +8,15 @@ import { LoanQuoteService } from './loan-quote-service/loan-quote.service';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { LendersComponent } from './lenders/lenders.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoanQuoteFormComponent,
     HomeComponent,
-    NavBarComponent
+    NavBarComponent,
+    LendersComponent
   ],
   imports: [
     BrowserModule, 
