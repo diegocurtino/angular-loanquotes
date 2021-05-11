@@ -10,17 +10,33 @@ export class LoanQuote {
   interestRate : string | undefined;
 }
 
+export class Lender {
+  name : string | undefined;
+  rate : number | undefined;
+  availableFunds : number | undefined;
+}
+
 @Injectable()
 export class LoanQuoteService {
-  endpointPrefix : string = "http://localhost:8080/online/quote?amountRequested=";
+  endpointRoot : string = "http://localhost:8080/online";
+  quoteEndpoint: string = "/quote?amountRequested=";
+  lendersEndpoint : string = "/lenders"
   endpointSuffix : string = "&lendersSource=CSV";
   url : string = "";
 
   constructor(private httpClient : HttpClient) {}
 
   getLoanQuote(amount : number): Observable<LoanQuote> {
-    this.url = this.endpointPrefix + amount + this.endpointSuffix;
+    this.url = this.endpointRoot + this.quoteEndpoint + amount + this.endpointSuffix;
     return this.httpClient.get<LoanQuote>(this.url)
+    .pipe(
+      retry(1)
+    )
+  }
+
+  getLenders() : Observable<Lender[]> {
+    this.url = this.endpointRoot + this.lendersEndpoint;
+    return this.httpClient.get<Lender[]>(this.url)
     .pipe(
       retry(1)
     )

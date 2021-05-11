@@ -1,3 +1,4 @@
+import { LoanQuote } from './../loan-quote-service/loan-quote.service';
 import { AmountValidators } from './../validators/amount-validators';
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms'
@@ -32,8 +33,8 @@ export class LoanQuoteFormComponent {
   }
 
   onSubmitLoanRequest() {
-    this.loanQuote = this.service.getLoanQuote(this.amount?.value).subscribe(
-      (res: {}) => {
+    this.service.getLoanQuote(this.amount?.value).subscribe(
+      (res: LoanQuote) => {
         this.loanQuote = res;
         this.showTable = true;
       });
